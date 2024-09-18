@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "sailfriend"
+version = "0.1.0"
+description = ""
+authors = ["Raiuri Santos"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^5.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
