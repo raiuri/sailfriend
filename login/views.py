@@ -5,10 +5,17 @@ from django.contrib.auth import authenticate
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+from rest_framework.views import APIView
 
 JWT_SECRET = settings.SECRET_KEY
 JWT_ALGORITHM = 'HS256'
 JWT_EXP_DELTA_SECONDS = 3600
+
+# Temporary view, consider delete after configure all authentication flow.
+class ProtectedView(APIView):
+    def get(self, request):
+        content = {"message": "You have permission to access this view!"}
+        return Response(content, status=status.HTTP_200_OK)
 
 @api_view(['POST'])
 def login_view(request):
