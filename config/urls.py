@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from login.views import login_view, ProtectedView
+from login.views import login_view, refresh_token_view, ProtectedView
 
 urlpatterns = [
     path('api/login/', login_view, name='login'),
+    path('api/refresh-token/', refresh_token_view, name='refresh_token'),
     path('admin/', admin.site.urls),
     path('api/protected/', ProtectedView.as_view(), name='protected'),
 ]
