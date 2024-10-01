@@ -45,9 +45,12 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    'custom_user',
 ]
 
 SITE_ID = 1
+
+AUTH_USER_MODEL = 'custom_user.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -99,7 +102,6 @@ REST_AUTH = {
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-# ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
