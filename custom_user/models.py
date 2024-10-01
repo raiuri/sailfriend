@@ -8,14 +8,14 @@ class CustomUser(AbstractUser):
 
 
 class InterestCategory(models.Model):
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=80, unique=True)
 
     def __str__(self):
         return self.name
 
 
 class Interest(models.Model):
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=80, unique=True)
     category = models.ForeignKey(InterestCategory, on_delete=models.CASCADE, related_name="interests")
 
     def __str__(self):

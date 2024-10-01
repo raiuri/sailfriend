@@ -6,3 +6,9 @@ class InterestCategorySerializer(serializers.ModelSerializer):
         model = InterestCategory
         fields = ['id', 'name']
 
+
+class InterestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Interest
+        fields = ['id', 'name']
+
