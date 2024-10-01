@@ -7,6 +7,13 @@ services:
       - 5433:5432
     volumes:
       - db_data:/var/lib/postgresql/data
+  mailpit:
+    image: axllent/mailpit
+    container_name: mailpit
+    restart: unless-stopped
+    ports:
+      - 8025:8025
+      - 1025:1025
     
 volumes:
   db_data:

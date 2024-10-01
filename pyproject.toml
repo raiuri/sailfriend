@@ -14,9 +14,6 @@ djangorestframework-simplejwt = "^5.3.1"
 psycopg = {extras = ["binary"], version = "^3.2.3"}
 
 
-[tool.poetry.group.dev.dependencies]
-aiosmtpd = "^1.4.6"
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

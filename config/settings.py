@@ -117,12 +117,14 @@ DATABASES = {
 }
 
 # Email
-# run: python -m aiosmtpd -n -l localhost:8025
-# to up a server and test emails
 
 EMAIL_HOST = 'localhost'
-EMAIL_PORT = '8025'
-
+EMAIL_PORT = '1025'
+EMAIL_HOST_USER = 'user@host'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = 'no-reply@example.com'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
