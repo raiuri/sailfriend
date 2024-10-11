@@ -1,7 +1,7 @@
 import uuid
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-
+from .choices import LANGUAGES_CHOICES, GenderChoices, NationalityChoices
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None):
@@ -71,11 +71,28 @@ class CustomUser(AbstractBaseUser):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 
+
+class CustomUserProfile(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    gender = models.CharField(max_length=1, choices=GenderChoices.choices)
+    birth_date = models.DateField()
+    nationality = models.CharField(max_length=20, choices=NationalityChoices.choices)
+    surname = models.CharField(max_length=100)
+    languages_spoken = models.JSONField(default=list, blank=False)
+
+    def __str__(self):
+        return self.name
+
+
+
 class InterestCategory(models.Model):
     name = models.CharField(max_length=80, unique=True)
 
     def __str__(self):
         return self.name
+
 
 
 class Interest(models.Model):
