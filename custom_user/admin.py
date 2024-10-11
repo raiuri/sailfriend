@@ -5,15 +5,12 @@ from .models import CustomUser, InterestCategory, Interest
 class CustomUserAdmin(admin.ModelAdmin):
     list_display = (
         'id',
-        'username',
         'email',
-        'first_name',
-        'last_name',
         'is_staff',
         'is_active',
         'is_superuser',
     )
-    search_fields = ('username', 'id')
+    search_fields = ('id', 'email')
 
 
 @admin.register(InterestCategory)
